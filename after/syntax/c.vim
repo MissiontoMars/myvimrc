@@ -27,50 +27,50 @@
 let tagsfilepath = './' . 'tags'
 let parent = 1
 let local_tags = './' . 'tags'
-while parent <= 80
-	if filereadable(local_tags)
-	"	echomsg local_tags . ' exists!!!'
-	
-		for b:KEYWORD_Line in readfile(local_tags)
-		
-		    " Self-defined type.
-		    let b:KEYWORD_cType=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+t')
-		    if (0 != strlen(b:KEYWORD_cType))
-		        exe 'syn keyword cType ' . b:KEYWORD_cType
-		    endif
-		
-		    " Member of struct, enum, union, etc.
-		    let b:KEYWORD_cMember=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+m')
-		    if (0 != strlen(b:KEYWORD_cMember))
-		        exe 'syn keyword cMember ' . b:KEYWORD_cMember
-		    endif
-		
-		    " Macro define.
-		    let b:KEYWORD_cDefine=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+d')
-		    if (0 != strlen(b:KEYWORD_cDefine))
-		        exe 'syn keyword cDefine ' . b:KEYWORD_cDefine
-		    endif
-		
-		    " Function.
-		    let b:KEYWORD_cFunction=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+f')
-		    if (0 != strlen(b:KEYWORD_cFunction))
-		        exe 'syn keyword cFunction ' . b:KEYWORD_cFunction
-		        hi def link cFunction   Function
-		    endif
-		
-		    " Global variable.
-		    let b:KEYWORD_cGlobalVal=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+v')
-		    if (0 != strlen(b:KEYWORD_cGlobalVal))
-		        exe 'syn keyword cGlobalVal ' . b:KEYWORD_cGlobalVal
-		        hi def link cGlobalVal  cDefine
-		    endif
-		endfor
-		break
-	endif
-	let local_tags = '../' . local_tags
-	let parent = parent+1
-endwhile
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"while parent <= 8
+"	if filereadable(local_tags)
+"	"	echomsg local_tags . ' exists!!!'
+"	
+"		for b:KEYWORD_Line in readfile(local_tags)
+"		
+"		    " Self-defined type.
+"		    let b:KEYWORD_cType=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+t')
+"		    if (0 != strlen(b:KEYWORD_cType))
+"		        exe 'syn keyword cType ' . b:KEYWORD_cType
+"		    endif
+"		
+"		    " Member of struct, enum, union, etc.
+"		    let b:KEYWORD_cMember=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+m')
+"		    if (0 != strlen(b:KEYWORD_cMember))
+"		        exe 'syn keyword cMember ' . b:KEYWORD_cMember
+"		    endif
+"		
+"		    " Macro define.
+"		    let b:KEYWORD_cDefine=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+d')
+"		    if (0 != strlen(b:KEYWORD_cDefine))
+"		        exe 'syn keyword cDefine ' . b:KEYWORD_cDefine
+"		    endif
+"		
+"		    " Function.
+"		    let b:KEYWORD_cFunction=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+f')
+"		    if (0 != strlen(b:KEYWORD_cFunction))
+"		        exe 'syn keyword cFunction ' . b:KEYWORD_cFunction
+"		        hi def link cFunction   Function
+"		    endif
+"		
+"		    " Global variable.
+"		    let b:KEYWORD_cGlobalVal=matchstr(b:KEYWORD_Line, '\_^\zs\<\h\w*\>\ze.\+;"\s\+v')
+"		    if (0 != strlen(b:KEYWORD_cGlobalVal))
+"		        exe 'syn keyword cGlobalVal ' . b:KEYWORD_cGlobalVal
+"		        hi def link cGlobalVal  cDefine
+"		    endif
+"		endfor
+"		break
+"	endif
+"	let local_tags = '../' . local_tags
+"	let parent = parent+1
+"endwhile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of c.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
