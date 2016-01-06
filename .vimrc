@@ -8,6 +8,8 @@ set t_Co=256
 "将当前编辑的文件所在的路径设置成VIM的当前路径
 set autochdir
 
+let mapleader=","
+
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1   
 let g:miniBufExplMapCTabSwitchBufs = 1   
@@ -142,15 +144,19 @@ function! AutoLoadCTagsAndCScope()
     let i = 0
     let break = 0
     while isdirectory(dir) && i < max
+		"echo 'loop' . dir
         if filereadable(dir . 'GTAGS')
+			"echo 'find a GTAGS ' . dir 
             execute 'cs add ' . dir . 'GTAGS ' . glob("`pwd`")
             let break = 1
         endif
         if filereadable(dir . 'cscope.out')
+			"echo 'find a cscope.out: ' . dir . 'cscope.out'
             execute 'cs add ' . dir . 'cscope.out'
             let break = 1
         endif
         if filereadable(dir . 'tags')
+			"echo 'find a tags ' . dir . 'tags'
             execute 'set tags =' . dir . 'tags'
             let break = 1
         endif
@@ -158,7 +164,7 @@ function! AutoLoadCTagsAndCScope()
             execute 'lcd ' . dir
             break
         endif
-        let dir = dir . '../'
+        let dir = dir . '../' 
         let i = i + 1
     endwhile
 endf
@@ -180,6 +186,19 @@ let g:vimroom_sidebar_height = 0
 let g:vimroom_background="white"
 let g:vimroom_width=110
 
+"""""""""""""""""""""""""""""""""""""""""""""
+"
+"		CtrlP
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = ',,'
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"
+"		FuzzyFinder
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>. :FufBuffer<CR> 
 
 ""for vimroom
 "自动打开NERDTree
