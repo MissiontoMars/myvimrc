@@ -200,6 +200,13 @@ let g:ctrlp_map = ',,'
 """""""""""""""""""""""""""""""""""""""""""""
 map <Leader>. :FufBuffer<CR> 
 
+"""""""""""""""""""""""""""""""""""""""""""""
+"
+"		EasyMotion
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_leader_key=','
+
 ""for vimroom
 "自动打开NERDTree
 "autocmd vimenter * NERDTree
