@@ -7,6 +7,8 @@
 set t_Co=256
 "将当前编辑的文件所在的路径设置成VIM的当前路径
 set autochdir
+"切换buffer时不再提示没有保存
+set hidden
 
 let mapleader=","
 
@@ -14,6 +16,7 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1   
 let g:miniBufExplMapCTabSwitchBufs = 1   
 let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplorerMoreThanOne=0
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos="right"
 let NERDTreeWinSize=30
