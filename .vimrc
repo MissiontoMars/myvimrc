@@ -17,6 +17,8 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1   
 let g:miniBufExplModSelTarget = 1 
 let g:miniBufExplorerMoreThanOne=0
+map <Leader>q :MBEbd<CR> 
+
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos="right"
 let NERDTreeWinSize=30
@@ -27,7 +29,8 @@ let NERDTreeAutoCenter=1
 map <f3> :NERDTree<cr>
 "map <f2> :Tlist<cr>
 map <f6> :QFix<cr>
-map <f4> zf%			#创建代码折叠
+"map <f4> zf%			#创建代码折叠
+map <f4> :MBEbd<cr>			#关闭当前的buffer窗口
 map <z> zc
 map <f7> :%s///gn<cr>
 
@@ -75,6 +78,13 @@ nmap <C-j>s <C-[>I//<C-[>
 nmap <C-j>S <C-[>I/*<C-[>A*/<C-[>
 nmap <C-j>d <C-[>^xx<C-[>
 nmap <C-j>D <C-[>^xx<C-[>$xx<C-[>
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"
+"		EasyMotion
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:MultipleSearchMaxColors=4
 
 "for ctags and scope
 execute "cs add cscope.out"
@@ -209,6 +219,10 @@ map <Leader>. :FufBuffer<CR>
 "
 """""""""""""""""""""""""""""""""""""""""""""
 let g:EasyMotion_leader_key=','
+
+"总是显示状态栏
+set laststatus=2
+
 
 ""for vimroom
 "自动打开NERDTree
