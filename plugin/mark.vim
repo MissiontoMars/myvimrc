@@ -270,12 +270,14 @@ endif
 if ! exists('g:mwPalettes')
 	let g:mwPalettes = {
 	\	'original': [
-		\   { 'ctermbg':'Cyan',       'ctermfg':'Black', 'guibg':'#8CCBEA', 'guifg':'Black' },
-		\   { 'ctermbg':'Green',      'ctermfg':'Black', 'guibg':'#A4E57E', 'guifg':'Black' },
-		\   { 'ctermbg':'Yellow',     'ctermfg':'Black', 'guibg':'#FFDB72', 'guifg':'Black' },
-		\   { 'ctermbg':'Red',        'ctermfg':'Black', 'guibg':'#FF7272', 'guifg':'Black' },
-		\   { 'ctermbg':'Magenta',    'ctermfg':'Black', 'guibg':'#FFB3FF', 'guifg':'Black' },
-		\   { 'ctermbg':'Blue',       'ctermfg':'Black', 'guibg':'#9999FF', 'guifg':'Black' },
+		\   { 'ctermbg':6,       'ctermfg':'Black', 'guibg':'#8CCBEA', 'guifg':'Black' },
+		\   { 'ctermbg':'DarkGreen',      'ctermfg':'Black', 'guibg':'#A4E57E', 'guifg':'Black' },
+		\   { 'ctermbg':'DarkYellow',     'ctermfg':'Black', 'guibg':'#FFDB72', 'guifg':'Black' },
+		\   { 'ctermbg':'DarkRed',        'ctermfg':'Black', 'guibg':'#FF7272', 'guifg':'Black' },
+		\   { 'ctermbg':'DarkMagenta',    'ctermfg':'Black', 'guibg':'#FFB3FF', 'guifg':'Black' },
+		\   { 'ctermbg':'DarkBlue',       'ctermfg':'Black', 'guibg':'#9999FF', 'guifg':'Black' },
+		\   { 'ctermbg':56,       'ctermfg':'Black', 'guibg':'#9999FF', 'guifg':'Black' },
+		\   { 'ctermbg':190,       'ctermfg':'Black', 'guibg':'#9999FF', 'guifg':'Black' },
 		\],
 	\	'extended': function('mark#palettes#Extended'),
 	\	'maximum': function('mark#palettes#Maximum')
@@ -384,9 +386,9 @@ endif
 " No default mapping for <Plug>MarkConfirmAllClear.
 " No default mapping for <Plug>MarkToggle.
 
-if !hasmapto('<Plug>MarkSearchCurrentNext', 'n')
-	nmap <unique> <Leader>* <Plug>MarkSearchCurrentNext
-endif
+"if !hasmapto('<Plug>MarkSearchCurrentNext', 'n')
+"	nmap <unique> <Leader>* <Plug>MarkSearchCurrentNext
+"endif
 if !hasmapto('<Plug>MarkSearchCurrentPrev', 'n')
 	nmap <unique> <Leader># <Plug>MarkSearchCurrentPrev
 endif
