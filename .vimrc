@@ -7,16 +7,17 @@
 set t_Co=256
 "将当前编辑的文件所在的路径设置成VIM的当前路径
 set autochdir
+"autocmd BufEnter * silent! lcd %:p:h
 "切换buffer时不再提示没有保存
 set hidden
 
 let mapleader=","
 
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1   
-let g:miniBufExplMapCTabSwitchBufs = 1   
-let g:miniBufExplModSelTarget = 1 
-let g:miniBufExplorerMoreThanOne=0
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1   
+"let g:miniBufExplMapCTabSwitchBufs = 1   
+"let g:miniBufExplModSelTarget = 1 
+"let g:miniBufExplorerMoreThanOne=0
 map <Leader>q :MBEbd<CR> 
 
 let NERDTreeShowLineNumbers=1
@@ -89,14 +90,15 @@ let g:MultipleSearchMaxColors=4
 "for ctags and scope
 execute "cs add cscope.out"
 map <F12> :call Do_CsTag()<CR>
-nmap <C-a>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <C-a>g :cs find g <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <C-a>c :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <C-a>t :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <C-a>e :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <C-a>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:copen<CR>
-nmap <C-a>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:copen<CR>
-nmap <C-a>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>g :cs find g <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>c :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>t :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>e :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+"nmap <C-a>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:copen<CR>
+"nmap <C-a>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:copen<CR>
+"nmap <C-a>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+
 "set tags=./tags,./TAGS,tags;~,TAGS;~
 "set tags=./tags
 function Do_CsTag()
@@ -142,7 +144,7 @@ function Do_CsTag()
         silent! execute "!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
     endif
     if(executable('cscope') && has("cscope") )
-            silent! execute "!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.java' -o -name '*.cs' > cscope.files"
+            silent! execute "!find `pwd` -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.java' -o -name '*.cs' > cscope.files"
         silent! execute "!cscope -Rbq"
         execute "normal :"
         if filereadable("cscope.out")
@@ -152,7 +154,7 @@ function Do_CsTag()
 endfunction
 
 function! AutoLoadCTagsAndCScope()
-    let max = 10
+    let max = 5
     let dir = './'
     let i = 0
     let break = 0
@@ -223,6 +225,21 @@ let g:EasyMotion_leader_key=','
 "总是显示状态栏
 set laststatus=2
 
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"
+"		indentLine
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_char = '|'
+"let g:indentLine_setColors = 0
+let g:indentLine_color_term = 100
+
+set conceallevel=1
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+let g:indentLine_setConceal = 0
+autocmd VimEnter,WinEnter,BufNewFile,BufRead,BufEnter,TabEnter * IndentLinesReset
 
 ""for vimroom
 "自动打开NERDTree
